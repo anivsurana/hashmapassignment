@@ -132,3 +132,17 @@ array_s load_monsters_csv(char *filename) {
 
     return monsters;
 }
+
+/*
+ * Generates a unique key for a monster based on its name.
+ */
+int get_key(monster_s *monster) 
+{
+    int key = 0;
+    const char *name = monster->name;
+    for (int i = 0; i < strlen(name); i++) 
+    {
+        key += name[i] * (i+1);
+    }
+    return key;
+}
